@@ -1,8 +1,20 @@
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ExchangeRate } from "./components/ExchangeRate";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchInterval: 60000
+    }
+  }
+});
+
 const App = () => {
   return (
-    <>
-      <h1 className="text-4xl text-center font-bold  text-green-700 pt-8">Crypto Exchange Rate Web App</h1>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <ExchangeRate />
+    </QueryClientProvider>
   );
 };
 
