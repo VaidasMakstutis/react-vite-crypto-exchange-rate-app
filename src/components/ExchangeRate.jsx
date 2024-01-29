@@ -12,12 +12,10 @@ export const ExchangeRate = () => {
 
   const handleFromCurrencyChange = e => {
     setFromCurrency(e);
-    console.log(e);
   };
 
   const handleToCurrencyChange = e => {
     setToCurrency(e);
-    console.log(e);
   };
 
   useEffect(() => {
@@ -38,25 +36,25 @@ export const ExchangeRate = () => {
     retryDelay: 6000
   });
 
-  console.log(data);
-
   return (
     <section className="exchange-rate">
-      <Typography.Title style={{ color: "#4d4add" }} level={2}>
+      <Typography.Title style={{ color: "#4d4add", textAlign: "center", paddingTop: "2rem" }} level={2}>
         Exchange Rate
       </Typography.Title>
-      <Typography.Text>Get the latest exchange rate of cryptocurrencies in your favorite currency</Typography.Text>
-      <section className="select-group" style={{ display: "flex", marginTop: "1rem", gap: "1rem", justifyContent: "space-around" }}>
+      <Typography.Text style={{ padding: "1.5rem", fontSize: "1rem", display: "flex", justifyContent: "center" }}>
+        Get the latest exchange rate of cryptocurrencies in your favorite currency
+      </Typography.Text>
+      <section className="select-group" style={{ display: "flex", marginTop: "1rem", gap: "1rem", justifyContent: "center" }}>
         <Select defaultValue={cryptoCurrencies[0].value} options={cryptoCurrencies} onChange={handleFromCurrencyChange} />{" "}
         <Select defaultValue={fiatCurrencies[0].value} options={fiatCurrencies} onChange={handleToCurrencyChange} />
       </section>
       <section style={{ marginTop: "1rem" }}>
         {isLoading ? (
-          <Spin tip="Fetching results" size="large" />
+          <Spin tip="Fetching results" size="large" style={{ display: "flex", justifyContent: "center" }} />
         ) : isError ? (
           <div>Error: {error.message}</div>
         ) : (
-          <div>
+          <div style={{ display: "flex", justifyContent: "center", paddingTop: "1rem" }}>
             <ExchangeRateUI
               price={data["Realtime Currency Exchange Rate"]["5. Exchange Rate"]}
               dataObj={dependencies}

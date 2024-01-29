@@ -16,7 +16,7 @@ export const ExchangeRateUI = props => {
 
   return (
     <div className="exchange-rate-ui">
-      <Card extra={currencySymbol} bordered={false} style={{ width: 350, backgroundColor: "#4d4add", color: "#fff" }} size="default">
+      <Card extra={currencySymbol} bordered={false} style={{ width: 300, backgroundColor: "#4d4add", color: "#fff" }} size="default">
         <Typography.Paragraph style={{ color: "#fff" }}>{formattedCurrency}</Typography.Paragraph>
       </Card>
     </div>
